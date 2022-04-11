@@ -8,6 +8,7 @@ import { ProductsResolver } from './graphql/resolvers/products.resolver';
 import { ProductsService } from 'src/services/products.services';
 import { PurchasesResolver } from './graphql/resolvers/purchases.resolver';
 import { PurchasesService } from 'src/services/purchases.service';
+import { CustomersService } from 'src/services/customers.service';
 
 @Module({
   imports: [
@@ -18,6 +19,6 @@ import { PurchasesService } from 'src/services/purchases.service';
       autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql')
     })
   ],
-  providers: [ProductsResolver, ProductsService, PurchasesResolver, PurchasesService]
+  providers: [ProductsResolver, ProductsService, PurchasesResolver, PurchasesService, CustomersService]
 })
 export class HttpModule { }
