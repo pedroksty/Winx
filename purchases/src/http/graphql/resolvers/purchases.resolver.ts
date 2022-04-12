@@ -37,8 +37,6 @@ export class PurchasesResolver {
     @CurrentUser() user: AuthUser
   ) {
 
-
-
     let customer = await this.customersService.getCustomerByAuthUserId(user.sub)
 
     if (!customer) {

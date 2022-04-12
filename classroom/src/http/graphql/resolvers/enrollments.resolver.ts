@@ -4,7 +4,6 @@ import { AuthorizationGuard } from "http/auth/authorization.guard";
 import { CoursesService } from "services/courses.service";
 import { EnrollmentsService } from "services/enrollments.service";
 import { StudentsService } from "services/students.service";
-import { Course } from "../models/course";
 import { Enrollment } from "../models/enrollment";
 
 @Resolver(() => Enrollment)

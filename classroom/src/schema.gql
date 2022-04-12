@@ -27,6 +27,15 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Query {
-  students: [Student!]!
+  courses: [Course!]!
   enrollments: [Enrollment!]!
+  students: [Student!]!
+}
+
+type Mutation {
+  createCourse(data: createCourseInput!): Course!
+}
+
+input createCourseInput {
+  title: String!
 }

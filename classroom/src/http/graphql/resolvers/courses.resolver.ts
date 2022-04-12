@@ -1,17 +1,29 @@
-import { Query, Resolver } from "@nestjs/graphql";
-import { EnrollmentsService } from "services/enrollments.service";
+import { UseGuards } from "@nestjs/common";
+import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
+import { AuthorizationGuard } from "http/auth/authorization.guard";
+import { CoursesService } from "services/courses.service";
+import { createCourseInput } from "../inputs/createCourseInput";
 import { Course } from "../models/course";
-import { Enrollment } from "../models/enrollment";
+
 
 @Resolver(() => Course)
 export class CoursesResolver {
   constructor(
-    private enrollmentService: EnrollmentsService,
+    private coursesService: CoursesService
 
   ) { }
 
-  @Query(() => [Enrollment])
-  async students() {
-    return await this.enrollmentService.listAllEnrollments()
+  @Query(() => [Course])
+  @UseGuards(AuthorizationGuard)
+  async courses() {
+    return await this.coursesService.listAllCourses()
+  }
+
+  @Mutation(() => Course)
+  @UseGuards(AuthorizationGuard)
+  async createCourse(
+    @Args('data') data: createCourseInput
+  ) {
+    return await this.coursesService.createCourse(data)
   }
 }
