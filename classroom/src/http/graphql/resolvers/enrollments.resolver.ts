@@ -33,6 +33,5 @@ export class EnrollmentsResolver {
     @Parent() enrollment: Enrollment
   ) {
     return this.coursesService.getCourseById(enrollment.courseId)
-
   }
 }
