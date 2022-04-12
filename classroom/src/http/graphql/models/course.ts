@@ -7,5 +7,7 @@ export class Course {
 
   @Field()
   title: string
+
+  @Field()
   slug: string
 }
