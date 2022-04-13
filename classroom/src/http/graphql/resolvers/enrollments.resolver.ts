@@ -14,6 +14,8 @@ export class EnrollmentsResolver {
     private studentsService: StudentsService
   ) { }
 
+
+
   @Query(() => [Enrollment])
   @UseGuards(AuthorizationGuard)
   async enrollments() {
