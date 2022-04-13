@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@nestjs/microservices": "^8.4.4",
+    "kafkajs": "^1.16.0",
     "slugify": "^1.6.5"
   }
 }
