@@ -28,6 +28,8 @@ export class PurchaseController {
   async purchaseCreated(
     @Payload('value') payload: PurchaseCreatedPayload
   ) {
+    console.log('nova compra', payload.product.title)
+
     let student = await this.studentsService.getStudentByAuthUserId(payload.customer.authUserId)
 
     if (!student) {
